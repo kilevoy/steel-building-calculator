@@ -37,7 +37,13 @@ MetalCalc replaces the current Excel calculators with a TypeScript application t
 
 ## Parity Source of Truth
 
-Reference workbooks currently live in the parent workspace and remain canonical until each module reaches parity verification.
+For in-repo development and CI, checked-in generated reference modules are canonical.
+
+- `src/domain/**/**.generated.ts` is the baseline used by `npm run check:references` and `npm run verify`
+- optional Excel workbooks remain parity inputs for regeneration and manual acceptance
+- workbook absence must not break local development or CI
+
+Detailed operating policy: [`REFERENCE_DATA_POLICY.md`](./REFERENCE_DATA_POLICY.md)
 
 ## Column Selection and Specification
 

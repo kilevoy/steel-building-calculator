@@ -1,5 +1,5 @@
-// Rebuilt from Калькулятор ферм типа Молодечно v1.0.xlsx.
-// Source workbook path can be overridden via TRUSS_REFERENCE_WORKBOOK.
+// Rebuilt from the checked-in truss reference snapshot.
+// Workbook-backed extraction was skipped because no source workbook was found.
 
 export const trussMemberKeys = [
   "vpN",

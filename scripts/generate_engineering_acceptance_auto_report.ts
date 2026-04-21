@@ -3,7 +3,7 @@ import { resolve } from 'node:path'
 
 const CASES_PATH = resolve(process.cwd(), 'docs/ENGINEERING_ACCEPTANCE_CASES.md')
 const REPORT_PATH = resolve(process.cwd(), 'docs/ENGINEERING_ACCEPTANCE_AUTO_REPORT.md')
-const TODAY = '2026-03-22'
+const TODAY = new Date().toISOString().slice(0, 10)
 
 type MetricRow = {
   metric: string
@@ -114,7 +114,7 @@ const fullyComparableCases = cases.filter((item) =>
 
 const report = `# Engineering Acceptance Auto Report
 
-Generated from [ENGINEERING_ACCEPTANCE_CASES.md](/C:/v2_1/docs/ENGINEERING_ACCEPTANCE_CASES.md) on ${TODAY}.
+Generated from [ENGINEERING_ACCEPTANCE_CASES.md](./ENGINEERING_ACCEPTANCE_CASES.md) on ${TODAY}.
 
 ## Summary
 
@@ -152,4 +152,3 @@ ${mismatchedCases.map((item) => {
 
 writeFileSync(REPORT_PATH, report, 'utf8')
 console.log(`Updated ${REPORT_PATH}`)
-

@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from 'react'
+﻿import { useState } from 'react'
 import {
   MAX_SUPPORTED_BUILDING_HEIGHT_M,
   MAX_SUPPORTED_BUILDING_LENGTH_M,
@@ -114,16 +114,6 @@ export function UnifiedInputPanel({ input, onChange }: UnifiedInputPanelProps) {
   const constructionAreaLabel = '\u0420\u0430\u0439\u043E\u043D \u0441\u0442\u0440\u043E\u0438\u0442\u0435\u043B\u044C\u0441\u0442\u0432\u0430'
   const cityLabel = '\u0413\u043E\u0440\u043E\u0434'
 
-  useEffect(() => {
-    if (isManualTrussEaveDepthFocused) {
-      return
-    }
-
-    setManualTrussEaveDepthDraft(
-      input.manualTrussEaveDepthM === null ? '' : String(input.manualTrussEaveDepthM).replace('.', ','),
-    )
-  }, [input.manualTrussEaveDepthM, isManualTrussEaveDepthFocused])
-
   const roofCoveringNormalized = input.roofCoveringType.toLowerCase()
   const wallCoveringNormalized = input.wallCoveringType.toLowerCase()
   const showRoofProfileSheet =
@@ -132,6 +122,10 @@ export function UnifiedInputPanel({ input, onChange }: UnifiedInputPanelProps) {
     roofCoveringNormalized.includes('малоуклонная кровля')
   const showWallProfileSheet =
     wallCoveringNormalized.includes('наше') && wallCoveringNormalized.includes('гвл')
+  const manualTrussEaveDepthInputValue =
+    isManualTrussEaveDepthFocused || manualTrussEaveDepthDraft !== ''
+      ? manualTrussEaveDepthDraft
+      : String(input.manualTrussEaveDepthM ?? derivedHeights.eaveTrussDepthM).replace('.', ',')
 
   return (
     <div className="unified-input-panel">
@@ -256,11 +250,7 @@ export function UnifiedInputPanel({ input, onChange }: UnifiedInputPanelProps) {
                 type="text"
                 inputMode="decimal"
                 aria-label={trussEaveDepthLabel}
-                value={
-                  usesManualTrussEaveDepth
-                    ? manualTrussEaveDepthDraft
-                    : derivedHeights.eaveTrussDepthM.toFixed(2)
-                }
+                value={usesManualTrussEaveDepth ? manualTrussEaveDepthInputValue : derivedHeights.eaveTrussDepthM.toFixed(2)}
                 disabled={!usesManualTrussEaveDepth}
                 onFocus={() => setIsManualTrussEaveDepthFocused(true)}
                 onChange={(event) => {

@@ -1,6 +1,6 @@
 # Engineering Acceptance Auto Report
 
-Generated from [ENGINEERING_ACCEPTANCE_CASES.md](/C:/v2_1/docs/ENGINEERING_ACCEPTANCE_CASES.md) on 2026-03-22.
+Generated from [ENGINEERING_ACCEPTANCE_CASES.md](./ENGINEERING_ACCEPTANCE_CASES.md) on 2026-04-21.
 
 ## Summary
 
@@ -47,4 +47,4 @@ Workbook-opaque metrics:
 
 Workbook-opaque metrics:
 
-- utilization: Excel=n/a, App=0.9997, tolerance=agreed delta
+- utilization: Excel=n/a, App=1.0035, tolerance=agreed delta

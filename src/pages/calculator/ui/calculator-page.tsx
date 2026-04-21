@@ -62,6 +62,10 @@ export function CalculatorPage({ initialDomain, onBack }: CalculatorPageProps) {
   })
   const { input, setField, setFields } = useCalculatorStore()
   const [isPending, startTransition] = useTransition()
+  const baseAppHref =
+    typeof window !== 'undefined' && window.location.pathname.startsWith('/steel-building-calculator/')
+      ? '/steel-building-calculator/'
+      : '/'
 
   useEffect(() => {
     window.localStorage.setItem(THEME_STORAGE_KEY, themeMode)
@@ -321,6 +325,22 @@ export function CalculatorPage({ initialDomain, onBack }: CalculatorPageProps) {
           </div>
 
           <div className="topbar-utility-group">
+            <a
+              className="tab tab--utility"
+              data-testid="link-window-rigel-demo"
+              href={`${baseAppHref}?route=window-rigel-demo`}
+              style={{ textDecoration: 'none' }}
+            >
+              Оконные ригели
+            </a>
+            <a
+              className="tab tab--utility"
+              data-testid="link-crane-beam-demo"
+              href={`${baseAppHref}?route=crane-beam-demo`}
+              style={{ textDecoration: 'none' }}
+            >
+              Подкрановая балка
+            </a>
             <button
               className={`tab tab--utility ${activeTab === 'methodology' ? 'active' : ''}`}
               data-testid="tab-methodology"

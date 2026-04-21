@@ -2,7 +2,7 @@
 
 This file is the working release sheet for final Excel-vs-app acceptance.
 
-App snapshot values in the `App` column are auto-generated from the current TypeScript calculator on 2026-03-22.
+App snapshot values in the `App` column are auto-generated from the current TypeScript calculator on 2026-04-21.
 Excel columns are populated from an auto-generated workbook snapshot when available. Final parity sign-off remains manual.
 
 Selection conventions:
@@ -35,9 +35,9 @@ Status values:
 | C-05 | column | Multi-span middle-column | `column_calculator_final_release.xlsx` | pending | multi-span branch |
 | P-01 | purlin | Default baseline | `calculator_final_release.xlsx` | pending | default app input |
 | P-02 | purlin | MP350 edge case | `calculator_final_release.xlsx` | pending | MP350 family focus |
-| P-03 | purlin | MP390 edge case | `calculator_final_release.xlsx` | pending | MP390 family focus |
+| P-03 | purlin | MP390 edge case | `calculator_final_release.xlsx` | pending | verify MP390 / 2TPS workbook branch on layered assembly covering |
 | P-04 | purlin | Sort-steel branch | `calculator_final_release.xlsx` | pending | non-LSTK branch |
-| P-05 | purlin | Manual step clamp | `calculator_final_release.xlsx` | pending | min/max step handling |
+| P-05 | purlin | Manual step clamp | `calculator_final_release.xlsx` | pending | manual max step on layered MP390 / 2TPS branch |
 
 ## Column Cases
 
@@ -338,13 +338,13 @@ Status values:
 | frameStepM | `6` |
 | fakhverkSpacingM | `6` |
 | terrainType | `В` |
-| coveringType | `С-П 150 мм` |
+| coveringType | `наше 250 мм 1 слой ГВЛ` |
 | profileSheet | `С44-1000-0,7` |
 | snowBagMode | `нет` |
 | manualMaxStepMm | `0` |
 | maxUtilizationRatio | `0.8` |
 | tiesSetting | `нет` |
-| note | `verify MP350 / 2TPS, 2PS and Z ordering` |
+| note | `verify MP350 / 2TPS workbook branch on layered assembly covering` |
 
 #### Result
 
@@ -379,13 +379,13 @@ Status values:
 | frameStepM | `6` |
 | fakhverkSpacingM | `6` |
 | terrainType | `В` |
-| coveringType | `С-П 150 мм` |
+| coveringType | `наше 250 мм 1 слой ГВЛ` |
 | profileSheet | `Н60-845-0,8` |
 | snowBagMode | `нет` |
 | manualMaxStepMm | `0` |
 | maxUtilizationRatio | `0.8` |
 | tiesSetting | `нет` |
-| note | `verify MP390 family ranking` |
+| note | `verify MP390 / 2TPS workbook branch on layered assembly covering` |
 
 #### Result
 
@@ -462,7 +462,7 @@ Status values:
 | frameStepM | `6` |
 | fakhverkSpacingM | `6` |
 | terrainType | `В` |
-| coveringType | `С-П 150 мм` |
+| coveringType | `наше 250 мм 1 слой ГВЛ` |
 | profileSheet | `С44-1000-0,7` |
 | snowBagMode | `нет` |
 | manualMaxStepMm | `1800` |
@@ -478,4 +478,4 @@ Status values:
 | selectedProfile | `2ТПС 245х65х1,5` | `2ТПС 245х65х1,5` | exact | pending |
 | stepMm | `1540` | `1540` | exact and `<= 1800` | pending |
 | totalMassKg | `8806.476` | `8806.476` | agreed delta | pending |
-| utilization | `n/a` | `0.9997` | agreed delta | pending |
+| utilization | `n/a` | `1.0035` | agreed delta | pending |

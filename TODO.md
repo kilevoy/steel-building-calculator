@@ -8,9 +8,9 @@
 - [x] keep `npm run lint` green without manual prep
 - [x] keep `npm run generate:purlin-ref` stable against checked-in generated data
 - [x] keep `npm run generate:column-ref` stable against checked-in generated data
-- [ ] lock workbook source-of-truth and versioning policy
+- [x] lock workbook source-of-truth and versioning policy
 - [ ] approve 5-10 engineering reference scenarios against Excel manually using `docs/ENGINEERING_ACCEPTANCE_CASES.md`
-- [ ] document accepted tolerances for profile, step, mass, and loads
+- [x] document accepted tolerances for profile, step, mass, and loads
 - [x] show clear out-of-range and error states in the UI
 - [x] document startup, generation, and verify cycle in `README.md`
 - [ ] run final release smoke on the target delivery environment

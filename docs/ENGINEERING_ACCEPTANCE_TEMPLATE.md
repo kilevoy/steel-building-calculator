@@ -114,6 +114,8 @@ Copy this block for every approved scenario.
 - utilization: define accepted delta here
 - mass: define accepted delta here
 
+Default reference policy: [`ENGINEERING_ACCEPTANCE_TOLERANCES.md`](./ENGINEERING_ACCEPTANCE_TOLERANCES.md)
+
 #### Result
 
 - Status: pending / accepted / rejected

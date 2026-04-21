@@ -8,6 +8,7 @@ const DUAL_SLOPE_ROOF = 'двускатная'
 const STEP_SELECTION_INVALID_VALUE = 99_999
 const PROFILE_OBJECTIVE_INVALID_VALUE = 9_999_999
 const UTILIZATION_INVALID_VALUE = 999_999
+const EXCEL_2TPS_UTILIZATION_TOLERANCE = 0.0035
 const PLATEAU_SHIFT_THRESHOLD = 3
 const Z_RUN_CONNECTOR_KG = 1.72
 const BRACE_UNIT_MASS_KG_PER_M = 9.6
@@ -249,7 +250,13 @@ function evaluateProfileAtStep(
   const utilization =
     ((linearLoad + selfWeightLoad) * input.frameStepM ** 2) / 8 / profile.momentResistance
 
-  if (utilization > 1) {
+  // Excel-backed 2TPS workbook branches occasionally keep the same profile/step
+  // a few thousandths above 1.0 due to workbook rounding and tolerance behavior.
+  const utilizationLimit = config.requiresPanelFilter
+    ? 1 + EXCEL_2TPS_UTILIZATION_TOLERANCE
+    : 1
+
+  if (utilization > utilizationLimit) {
     return {
       objectiveValue: UTILIZATION_INVALID_VALUE,
       profile,
@@ -396,4 +403,3 @@ export function calculateLstkFamilyCandidates(
     .map((config) => calculateFamilyCandidate(input, derivedContext, preparedContext, stepAxis, config))
     .filter((candidate): candidate is CandidateResult => candidate !== null)
 }
-

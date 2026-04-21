@@ -1,5 +1,5 @@
-// Rebuilt fully from workbook-backed purlin references (calculator_final_release.xlsx).
-// Workbook-backed exports: purlinAutoStepCapacityTable, purlinCityLoads, purlinCoveringCatalog, purlinLstkMp3502PsProfiles, purlinLstkMp3502TpsProfiles, purlinLstkMp350StepAxis, purlinLstkMp350ZProfiles, purlinLstkMp3902PsProfiles, purlinLstkMp3902TpsProfiles, purlinLstkMp390ZProfiles, purlinNuGrid, purlinNuXValues, purlinNuYValues, purlinProfileSheetIndices, purlinSortSteelProfiles, purlinSortSteelStabilityGrid, purlinSortSteelStabilityLambdaAxis, purlinSortSteelStabilityMefAxis, purlinSortSteelStepAxis, purlinSpRkEnCityFlags, purlinWindHeightTable.
+// Rebuilt from the checked-in purlin reference snapshot.
+// Workbook-backed extraction was skipped because no source workbook was found.
 
 export const purlinAutoStepCapacityTable = [
   {

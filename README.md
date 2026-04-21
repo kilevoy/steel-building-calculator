@@ -40,6 +40,9 @@ Workbook-backed generators:
 - `npm run generate:purlin-ref`
 - `npm run generate:column-ref`
 
+Checked-in `*.generated.ts` files are the canonical in-repo baseline for CI and `npm run verify`.
+If no workbook is found, generators rebuild from the checked-in snapshot instead of failing.
+
 Workbook lookup order:
 
 - `PURLIN_REFERENCE_WORKBOOK` or `COLUMN_REFERENCE_WORKBOOK`
@@ -48,13 +51,21 @@ Workbook lookup order:
 - `C:\calculator_final_release.xlsx`
 - `C:\column_calculator_final_release.xlsx`
 
-If no workbook is found, generators rebuild from the checked-in snapshot instead of failing.
+Truss lookup is similar and can be overridden with `TRUSS_REFERENCE_WORKBOOK`.
+
+Reference-data policy:
+
+- checked-in generated modules are the source of truth for CI and everyday development
+- Excel workbooks are optional parity inputs for regeneration and manual acceptance
+- acceptance artifacts in `docs/` are evidence files, not runtime inputs
+
+Detailed policy: [docs/REFERENCE_DATA_POLICY.md](./docs/REFERENCE_DATA_POLICY.md)
 
 ## Verification
 
 `npm run verify` runs the project release sanity cycle:
 
-1. regenerate both reference modules and fail on drift
+1. regenerate reference modules and fail on drift
 2. lint
 3. unit tests
 4. production build
@@ -144,6 +155,7 @@ Template for that final step:
 - `docs/ENGINEERING_ACCEPTANCE_TEMPLATE.md`
 - `docs/ENGINEERING_ACCEPTANCE_CASES.md`
 - `docs/ENGINEERING_ACCEPTANCE_AUTO_REPORT.md`
+- `docs/ENGINEERING_ACCEPTANCE_TOLERANCES.md`
 
 The working acceptance sheet can be refreshed in two stages:
 
@@ -158,3 +170,8 @@ Or in one combined step:
 ```bash
 npm run generate:acceptance-pack
 ```
+
+Workbook-backed acceptance snapshot generation can be pointed at explicit files with:
+
+- `COLUMN_ACCEPTANCE_WORKBOOK`
+- `PURLIN_ACCEPTANCE_WORKBOOK`

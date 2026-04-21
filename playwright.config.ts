@@ -4,6 +4,7 @@ import { defineConfig, devices } from '@playwright/test'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
+const devServerCommand = 'node scripts/run_playwright_server.mjs'
 
 export default defineConfig({
   testDir: path.join(__dirname, 'tests', 'e2e'),
@@ -17,8 +18,9 @@ export default defineConfig({
     trace: 'on-first-retry',
   },
   webServer: {
-    command: 'npm run dev -- --host 127.0.0.1 --port 4174',
+    command: devServerCommand,
     url: 'http://127.0.0.1:4174',
+    timeout: 120 * 1000,
     reuseExistingServer: !process.env.CI,
   },
   projects: [

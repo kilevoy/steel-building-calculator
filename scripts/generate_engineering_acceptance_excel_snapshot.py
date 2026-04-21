@@ -1,15 +1,17 @@
 ﻿from __future__ import annotations
 
 import json
+import os
+from datetime import date
 from pathlib import Path
 
 import win32com.client as win32
 
-REPO_ROOT = Path(r'C:\v2_1')
+REPO_ROOT = Path(__file__).resolve().parent.parent
 OUT_PATH = REPO_ROOT / 'docs' / 'ENGINEERING_ACCEPTANCE_EXCEL_SNAPSHOT.json'
-COLUMN_WORKBOOK = Path(r'C:\column_calculator_final_release.xlsx')
-PURLIN_WORKBOOK = Path(r'C:\calculator_final_release.xlsx')
-TODAY = '2026-03-22'
+COLUMN_WORKBOOK = Path(os.environ.get('COLUMN_ACCEPTANCE_WORKBOOK', r'C:\column_calculator_final_release.xlsx'))
+PURLIN_WORKBOOK = Path(os.environ.get('PURLIN_ACCEPTANCE_WORKBOOK', r'C:\calculator_final_release.xlsx'))
+TODAY = date.today().isoformat()
 
 COLUMN_SCENARIOS = {
     'C-01': {

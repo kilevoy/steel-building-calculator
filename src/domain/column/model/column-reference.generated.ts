@@ -1,5 +1,5 @@
-// Rebuilt fully from workbook-backed column references (column_calculator_final_release.xlsx).
-// Workbook-backed exports: columnBraceUnitMassKgPerM, columnCandidateCatalog, columnCityLoads, columnCoveringCatalog, columnSupportCraneCatalog.
+// Rebuilt from the checked-in column reference snapshot.
+// Workbook-backed extraction was skipped because no source workbook was found.
 
 export const columnBraceUnitMassKgPerM = 9.6 as const;
 

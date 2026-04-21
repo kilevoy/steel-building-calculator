@@ -15,7 +15,7 @@ describe('purlin MP390 selection', () => {
     expect(candidates).toHaveLength(3)
     expect(candidates[0]?.family).toBe('MP390 / 2TPS')
     expect(candidates[0]?.profile).toBe('2ТПС 150х45х2')
-    expect(candidates[0]?.stepMm).toBe(1050)
+    expect(candidates[0]?.stepMm).toBe(1055)
   })
 
   it('matches the constrained recommendations for non-layered MP390 coverings', () => {

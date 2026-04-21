@@ -382,11 +382,9 @@ export function normalizeLoadedInput(raw: unknown): UnifiedInputState {
     buildingHeightM?: unknown
     supportNodeOffsetAboveBottomChordM?: unknown
   }
-  const {
-    buildingHeightM: _legacyBuildingHeightM,
-    supportNodeOffsetAboveBottomChordM: _legacySupportNodeOffsetAboveBottomChordM,
-    ...parsedWithoutLegacyHeight
-  } = parsed
+  const parsedWithoutLegacyHeight = { ...parsed }
+  delete parsedWithoutLegacyHeight.buildingHeightM
+  delete parsedWithoutLegacyHeight.supportNodeOffsetAboveBottomChordM
   const normalizedHeightFields = resolveNormalizedHeightFields(parsed)
 
   return {

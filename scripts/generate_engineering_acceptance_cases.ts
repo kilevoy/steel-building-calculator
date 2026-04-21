@@ -9,7 +9,7 @@ import { calculatePurlin } from '../src/domain/purlin/model/calculate-purlin.ts'
 
 const OUTPUT_PATH = resolve(process.cwd(), 'docs/ENGINEERING_ACCEPTANCE_CASES.md')
 const EXCEL_SNAPSHOT_PATH = resolve(process.cwd(), 'docs/ENGINEERING_ACCEPTANCE_EXCEL_SNAPSHOT.json')
-const TODAY = '2026-03-22'
+const TODAY = new Date().toISOString().slice(0, 10)
 
 type ResultRow = {
   metric: string
@@ -129,7 +129,10 @@ function renderResultRows(rows: ResultRow[]): string {
 }
 
 function buildColumnScenario(definition: Omit<ColumnScenario, 'resultRows'>): ColumnScenario {
-  const result = calculateColumn(definition.input, { selectionMode: 'excel' })
+  const result = calculateColumn({
+    ...definition.input,
+    columnSelectionMode: 'excel',
+  })
   const groupKey = findColumnGroupKey(definition.input)
   const group = result.specification.groups.find((item) => item.key === groupKey)
 
@@ -508,7 +511,10 @@ const purlinScenarios: PurlinScenario[] = [
     scenario: 'MP350 edge case',
     workbook: 'calculator_final_release.xlsx',
     notes: 'MP350 family focus',
-    input: { ...defaultPurlinInput },
+    input: {
+      ...defaultPurlinInput,
+      coveringType: 'наше 250 мм 1 слой ГВЛ',
+    },
     inputRows: [
       ['city', defaultPurlinInput.city],
       ['normativeMode', defaultPurlinInput.normativeMode],
@@ -521,13 +527,13 @@ const purlinScenarios: PurlinScenario[] = [
       ['frameStepM', defaultPurlinInput.frameStepM],
       ['fakhverkSpacingM', defaultPurlinInput.fakhverkSpacingM],
       ['terrainType', defaultPurlinInput.terrainType],
-      ['coveringType', defaultPurlinInput.coveringType],
+      ['coveringType', 'наше 250 мм 1 слой ГВЛ'],
       ['profileSheet', defaultPurlinInput.profileSheet],
       ['snowBagMode', defaultPurlinInput.snowBagMode],
       ['manualMaxStepMm', defaultPurlinInput.manualMaxStepMm],
       ['maxUtilizationRatio', defaultPurlinInput.maxUtilizationRatio],
       ['tiesSetting', defaultPurlinInput.tiesSetting],
-      ['note', 'verify MP350 / 2TPS, 2PS and Z ordering'],
+      ['note', 'verify MP350 / 2TPS workbook branch on layered assembly covering'],
     ],
     resultRows: [
       { metric: 'MP350 top family', app: '', tolerance: 'exact' },
@@ -540,8 +546,8 @@ const purlinScenarios: PurlinScenario[] = [
     id: 'P-03',
     scenario: 'MP390 edge case',
     workbook: 'calculator_final_release.xlsx',
-    notes: 'MP390 family focus',
-    input: { ...defaultPurlinInput, profileSheet: 'Н60-845-0,8' },
+    notes: 'verify MP390 / 2TPS workbook branch on layered assembly covering',
+    input: { ...defaultPurlinInput, coveringType: 'наше 250 мм 1 слой ГВЛ', profileSheet: 'Н60-845-0,8' },
     inputRows: [
       ['city', defaultPurlinInput.city],
       ['normativeMode', defaultPurlinInput.normativeMode],
@@ -554,13 +560,13 @@ const purlinScenarios: PurlinScenario[] = [
       ['frameStepM', defaultPurlinInput.frameStepM],
       ['fakhverkSpacingM', defaultPurlinInput.fakhverkSpacingM],
       ['terrainType', defaultPurlinInput.terrainType],
-      ['coveringType', defaultPurlinInput.coveringType],
+      ['coveringType', 'наше 250 мм 1 слой ГВЛ'],
       ['profileSheet', 'Н60-845-0,8'],
       ['snowBagMode', defaultPurlinInput.snowBagMode],
       ['manualMaxStepMm', defaultPurlinInput.manualMaxStepMm],
       ['maxUtilizationRatio', defaultPurlinInput.maxUtilizationRatio],
       ['tiesSetting', defaultPurlinInput.tiesSetting],
-      ['note', 'verify MP390 family ranking'],
+      ['note', 'verify MP390 / 2TPS workbook branch on layered assembly covering'],
     ],
     resultRows: [
       { metric: 'MP390 top family', app: '', tolerance: 'exact' },
@@ -607,8 +613,8 @@ const purlinScenarios: PurlinScenario[] = [
     id: 'P-05',
     scenario: 'manual step clamp',
     workbook: 'calculator_final_release.xlsx',
-    notes: 'min/max step handling',
-    input: { ...defaultPurlinInput, manualMaxStepMm: 1800 },
+    notes: 'manual max step on layered MP390 / 2TPS branch',
+    input: { ...defaultPurlinInput, coveringType: 'наше 250 мм 1 слой ГВЛ', manualMaxStepMm: 1800 },
     inputRows: [
       ['city', defaultPurlinInput.city],
       ['normativeMode', defaultPurlinInput.normativeMode],
@@ -621,7 +627,7 @@ const purlinScenarios: PurlinScenario[] = [
       ['frameStepM', defaultPurlinInput.frameStepM],
       ['fakhverkSpacingM', defaultPurlinInput.fakhverkSpacingM],
       ['terrainType', defaultPurlinInput.terrainType],
-      ['coveringType', defaultPurlinInput.coveringType],
+      ['coveringType', 'наше 250 мм 1 слой ГВЛ'],
       ['profileSheet', defaultPurlinInput.profileSheet],
       ['snowBagMode', defaultPurlinInput.snowBagMode],
       ['manualMaxStepMm', 1800],
@@ -737,5 +743,3 @@ ${purlinScenariosWithExcel.map(renderPurlinCase).join('\n\n')}
 
 writeFileSync(OUTPUT_PATH, document, 'utf8')
 console.log(`Updated ${OUTPUT_PATH}`)
-
-

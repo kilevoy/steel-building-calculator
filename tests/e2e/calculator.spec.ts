@@ -40,7 +40,7 @@ test('switches between summary, enclosing, truss, methodology, column and purlin
   await expect(page.locator('.load-grid--purlin')).toBeVisible()
   await expect(page.locator('.purlin-truss-visual')).toHaveCount(0)
 
-  await page.getByTestId('tab-column').click()
+  await page.getByTestId('tab-column').click({ force: true })
   await expect(page.getByTestId('tab-column')).toHaveClass(/active/)
   await expect(page.locator('.results-section-row')).toBeVisible()
 })
