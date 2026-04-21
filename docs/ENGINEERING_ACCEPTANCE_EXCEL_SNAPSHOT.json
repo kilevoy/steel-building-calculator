@@ -1,0 +1,89 @@
+{
+  "generatedAt": "2026-03-22",
+  "cases": {
+    "C-01": {
+      "selectedProfile": "40 Б1",
+      "columnGroup": "extreme",
+      "unitMassKgPerM": "56.6",
+      "totalMassKg": "783.38",
+      "utilization": "0.9534",
+      "snowLoadKpa": "2.45",
+      "windLoadKpa": "0.3",
+      "craneWheelLoadKn": "60"
+    },
+    "C-02": {
+      "selectedProfile": "35 Б2",
+      "columnGroup": "extreme",
+      "unitMassKgPerM": "49.6",
+      "totalMassKg": "702.88",
+      "utilization": "0.9101",
+      "snowLoadKpa": "2.1",
+      "windLoadKpa": "0.23",
+      "craneWheelLoadKn": "60"
+    },
+    "C-03": {
+      "selectedProfile": "70 Ш2",
+      "columnGroup": "extreme",
+      "unitMassKgPerM": "190.4",
+      "totalMassKg": "3635.84",
+      "utilization": "0.9289",
+      "snowLoadKpa": "0.6",
+      "windLoadKpa": "0.6",
+      "craneWheelLoadKn": "60"
+    },
+    "C-04": {
+      "selectedProfile": "50 Б2",
+      "columnGroup": "extreme",
+      "unitMassKgPerM": "79.5",
+      "totalMassKg": "1046.73",
+      "utilization": "0.9834",
+      "snowLoadKpa": "2.45",
+      "windLoadKpa": "0.3",
+      "craneWheelLoadKn": "95"
+    },
+    "C-05": {
+      "selectedProfile": "40 Б1",
+      "columnGroup": "middle",
+      "unitMassKgPerM": "56.6",
+      "totalMassKg": "783.38",
+      "utilization": "0.9367",
+      "snowLoadKpa": "2.45",
+      "windLoadKpa": "0.3",
+      "craneWheelLoadKn": "60"
+    },
+    "P-01": {
+      "topFamily": "Sort steel",
+      "selectedFamily": "Sort steel",
+      "selectedProfile": "пр.180х140х4",
+      "stepMm": "2550",
+      "totalMassKg": "13120.14",
+      "utilization": "n/a"
+    },
+    "P-02": {
+      "MP350 top family": "MP350 / 2TPS",
+      "MP350 selectedProfile": "2ТПС 245х65х2",
+      "MP350 stepMm": "2085",
+      "MP350 totalMassKg": "8914.308"
+    },
+    "P-03": {
+      "MP390 top family": "MP390 / 2TPS",
+      "MP390 selectedProfile": "2ТПС 245х65х2",
+      "MP390 stepMm": "2340",
+      "MP390 totalMassKg": "8228.592"
+    },
+    "P-04": {
+      "selectedFamily": "unsupported: workbook has no maxUtilizationRatio input to match this scenario exactly",
+      "selectedProfile": "unsupported: workbook has no maxUtilizationRatio input to match this scenario exactly",
+      "stepMm": "unsupported: workbook has no maxUtilizationRatio input to match this scenario exactly",
+      "totalMassKg": "unsupported: workbook has no maxUtilizationRatio input to match this scenario exactly",
+      "utilization": "n/a"
+    },
+    "P-05": {
+      "selectedFamily": "MP390 / 2TPS",
+      "selectedProfile": "2ТПС 245х65х1,5",
+      "stepMm": "1540",
+      "totalMassKg": "8806.476",
+      "utilization": "n/a"
+    }
+  }
+}
