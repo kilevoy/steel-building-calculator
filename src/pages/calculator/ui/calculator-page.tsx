@@ -50,7 +50,7 @@ export function CalculatorPage({ initialDomain, onBack }: CalculatorPageProps) {
   const [activeTab, setActiveTab] = useState<DomainTab>(initialDomain)
   const [themeMode, setThemeMode] = useState<ThemeMode>(() => {
     if (typeof window === 'undefined') {
-      return 'light'
+      return 'dark'
     }
 
     const savedTheme = window.localStorage.getItem(THEME_STORAGE_KEY)
@@ -58,7 +58,7 @@ export function CalculatorPage({ initialDomain, onBack }: CalculatorPageProps) {
       return savedTheme
     }
 
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+    return 'dark'
   })
   const { input, setField, setFields } = useCalculatorStore()
   const [isPending, startTransition] = useTransition()

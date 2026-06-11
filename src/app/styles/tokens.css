@@ -1,6 +1,7 @@
 /* Web fonts are linked from index.html with preconnect to avoid a render-blocking CSS @import. */
 
 :root {
+  color-scheme: light;
   --bg: #f5f0e8;
   --bg-elevated: rgba(255, 250, 242, 0.84);
   --bg-strong: #13242e;
@@ -48,6 +49,7 @@
 }
 
 .dark-mode-ready[data-theme='light'] {
+  color-scheme: light;
   --bg: #f5f0e8;
   --bg-elevated: rgba(255, 250, 242, 0.84);
   --bg-strong: #13242e;
@@ -88,6 +90,7 @@
 }
 
 .dark-mode-ready[data-theme='dark'] {
+  color-scheme: dark;
   --bg: #0b1317;
   --bg-elevated: rgba(18, 30, 36, 0.84);
   --bg-strong: #1b2d36;

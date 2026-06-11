@@ -2518,6 +2518,7 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  flex-wrap: wrap;
   gap: 10px;
   margin-left: auto;
 }
@@ -2995,6 +2996,23 @@ textarea {
     justify-content: flex-start;
   }
 
+  .tabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  .tab {
+    min-width: 0;
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .topbar-utility-group .tab--utility {
+    flex: 1 1 calc(50% - 10px);
+  }
+
   .theme-toggle {
     width: 100%;
     margin-left: 0;
@@ -3225,6 +3243,7 @@ textarea {
 }
 
 .app-shell {
+  min-height: 100vh;
   background: var(--shell-bg);
 }
 
@@ -3298,6 +3317,65 @@ textarea {
 
 .summary-metric-card strong {
   color: var(--ink);
+}
+
+.form-section {
+  border-color: var(--section-border);
+  background: var(--section-bg);
+}
+
+.form-section-title,
+.results-section-title,
+.truss-settings-subtitle,
+.truss-settings-code {
+  color: var(--table-head-ink);
+}
+
+.data-table th,
+.data-table td {
+  border-bottom-color: var(--line);
+}
+
+.data-table td {
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.data-table tbody tr:not(.data-table-note):hover td {
+  background: var(--tile-bg);
+}
+
+.data-table tr.data-table-note td {
+  background: var(--table-head-bg);
+  color: var(--soft-ink);
+}
+
+.results-print-action {
+  border-color: var(--toggle-border);
+  background: var(--panel-bg);
+  color: var(--ink);
+}
+
+.results-print-action:hover {
+  background: var(--tile-bg);
+}
+
+.results-empty {
+  color: var(--soft-ink);
+}
+
+.app-shell,
+.topbar,
+.unified-input-panel,
+.results-panel,
+.form-section,
+.field-input,
+.field-select,
+.load-tile,
+.tabs,
+.theme-toggle {
+  transition: background-color 0.22s ease, border-color 0.22s ease, color 0.22s ease,
+    opacity 0.3s ease, filter 0.3s ease;
 }
 
 /* ─── Lazy route fallback ────────────────────────────────────── */
