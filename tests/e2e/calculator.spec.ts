@@ -57,9 +57,11 @@ test('shows three snow bag modes in unified input', async ({ page }) => {
 test('switches between light and dark themes', async ({ page }) => {
   await page.goto('/')
 
-  await page.getByTestId('theme-dark').click()
   await expect(page.getByTestId('calculator-page')).toHaveAttribute('data-theme', 'dark')
 
   await page.getByTestId('theme-light').click()
   await expect(page.getByTestId('calculator-page')).toHaveAttribute('data-theme', 'light')
+
+  await page.getByTestId('theme-dark').click()
+  await expect(page.getByTestId('calculator-page')).toHaveAttribute('data-theme', 'dark')
 })
