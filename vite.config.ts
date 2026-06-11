@@ -36,6 +36,12 @@ export default defineConfig({
               return 'zod-vendor'
             }
 
+            if (id.includes('node_modules/pdfjs-dist')) {
+              // pdfjs is loaded on demand from the enclosing price import flow;
+              // keeping it out of the shared vendor chunk keeps startup lean.
+              return 'pdfjs-vendor'
+            }
+
             return 'vendor'
           }
 
@@ -45,6 +51,14 @@ export default defineConfig({
 
           if (id.includes('purlin-reference.generated.ts')) {
             return 'reference-purlin'
+          }
+
+          if (id.includes('truss-reference.generated.ts')) {
+            return 'reference-truss'
+          }
+
+          if (id.includes('enclosing-reference.generated.ts')) {
+            return 'reference-enclosing'
           }
 
           return undefined

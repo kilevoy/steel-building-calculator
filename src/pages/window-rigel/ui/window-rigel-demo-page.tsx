@@ -8,7 +8,7 @@ import {
   type WindowRigelInput,
   windowRigelConstructionOptions,
   windowRigelWindowTypeOptions,
-} from '../model/calculate-window-rigel'
+} from '@/domain/window-rigel/model/calculate-window-rigel'
 
 interface WindowRigelDemoPageProps {
   backHref: string

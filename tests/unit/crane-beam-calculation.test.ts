@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import {
   calculateCraneBeam,
   defaultCraneBeamInput,
-} from '@/pages/crane-beam/model/calculate-crane-beam'
+} from '@/domain/crane-beam/model/calculate-crane-beam'
 
 describe('crane beam calculation', () => {
   it('uses workbook-backed selection for known matrix cases', () => {

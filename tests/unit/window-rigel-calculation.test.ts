@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import {
   calculateWindowRigel,
   defaultWindowRigelDemoInput,
-} from '@/pages/window-rigel/model/calculate-window-rigel'
+} from '@/domain/window-rigel/model/calculate-window-rigel'
 
 describe('window rigel calculation', () => {
   it('returns candidates for the default restored scenario', () => {
