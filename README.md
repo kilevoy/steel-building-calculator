@@ -1,5 +1,8 @@
 # MetalCalc
 
+[![CI](https://github.com/kilevoy/steel-building-calculator/actions/workflows/ci.yml/badge.svg)](https://github.com/kilevoy/steel-building-calculator/actions/workflows/ci.yml)
+[![Deploy Pages](https://github.com/kilevoy/steel-building-calculator/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/kilevoy/steel-building-calculator/actions/workflows/deploy-pages.yml)
+
 MetalCalc transfers Excel-based purlin and column calculators into a testable TypeScript application with workbook-backed reference data.
 
 ## Stack
@@ -133,8 +136,8 @@ Resulting URL:
 ## Layout
 
 - `src/app` application shell
-- `src/pages` UI screens
-- `src/domain` pure calculation logic and contracts
+- `src/pages` UI screens (loaded lazily per route)
+- `src/domain` pure calculation logic and contracts for all modules, including `crane-beam` and `window-rigel`
 - `src/shared` helpers and config
 - `scripts` workbook extraction and maintenance utilities
 - `tests/unit` unit and parity-smoke tests

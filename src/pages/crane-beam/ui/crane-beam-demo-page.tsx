@@ -11,7 +11,7 @@ import {
   craneBeamSuspensionTypeOptions,
   defaultCraneBeamInput,
   type CraneBeamInput,
-} from '../model/calculate-crane-beam'
+} from '@/domain/crane-beam/model/calculate-crane-beam'
 
 interface CraneBeamDemoPageProps {
   backHref: string

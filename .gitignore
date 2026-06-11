@@ -25,3 +25,7 @@ coverage
 *.njsproj
 *.sln
 *.sw?
+
+# Python tooling
+__pycache__/
+*.pyc
